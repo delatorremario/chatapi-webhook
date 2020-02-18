@@ -1,11 +1,8 @@
-const routes = require('express').Router()
-const bodyParser = require('body-parser')
+var express = require("express");
+var router = express.Router();
 
-const urlencodedParser = bodyParser.urlencoded({ extended: false })
-
-routes.get("/", urlencodedParser, async (req, res) => {
-    let message = "Welcome to ChatApi-gateway/webhook"
-    res.json(message);    
+router.get("/", function(req, res, next) {
+  res.status(200).send("Hola Mundo!!.. ChatApi-wenhook!");
 });
 
-module.exports = { routes };
+module.exports = router;

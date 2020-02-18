@@ -6,7 +6,7 @@ const app = express();
 
 app.use(express.json());
 
-app.use('/', routesIndex.routes);
+app.use('/', routesIndex);
 app.use('/webhook', routesWebhook.routes);
 app.use('/gateway', routesGateway.routes);
 
