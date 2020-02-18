@@ -12,13 +12,11 @@ routes.post("/", urlencodedParser, async (req, res, next) => {
 
     if (
       body.to != "" &&
-      body.from != "" &&
       body.text != "" &&
       body.token != ""
     ) {
       let data = {
         token: body.token,
-        uid: body.from,
         to: body.to,
         text: body.text
       };
