@@ -2,7 +2,7 @@ var express = require("express");
 var router = express.Router();
 
 router.get("/", function(req, res, next) {
-  res.status(200).send("Hola Mundo!!.. ChatApi-wenhook!");
+  res.status(200).send("ChatApi-webhook app!");
 });
 
 module.exports = router;
