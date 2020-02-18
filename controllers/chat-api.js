@@ -5,8 +5,8 @@ const axios = require("axios");
 sendMsg = async ({ token, from, to, text, data, filename }) => {
     try {
         let data = {
-            phone: '5492616756885', // Receivers phone
-            body: 'Hello!',
+            phone: to, // Receivers phone
+            body: text,
         };
 
         let options = {
@@ -15,7 +15,7 @@ sendMsg = async ({ token, from, to, text, data, filename }) => {
                 Authorization: `Token ${token}`,
                 "Content-type" : "application/json"
             },
-            json: data,
+            data,
             url: `${chat_apiURL}/sendMessage?token=${token}`
           };
 
@@ -23,7 +23,7 @@ sendMsg = async ({ token, from, to, text, data, filename }) => {
         const response = await axios(options);
         return { data: response.data, status: response.status };;        
     } catch (error) {
-        throw err;
+        throw error;
     }
 }
 
