@@ -3,7 +3,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 
 // const routesWebhook = require("./routes/webhook");
-// const routesGateway = require("./routes/gateway");
+const routesGateway = require("./routes/gateway");
 const routesIndex = require("./routes/index");
 const app = express();
 app.use(morgan("dev"));
@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use("/", routesIndex);
 // app.use('/webhook', routesWebhook.routes);
-// app.use('/gateway', routesGateway.routes);
+app.use('/gateway', routesGateway.routes);
 
 const PORT = process.env.PORT || 5000;
 
