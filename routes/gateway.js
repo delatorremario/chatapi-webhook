@@ -10,11 +10,7 @@ routes.post("/", urlencodedParser, async (req, res, next) => {
     console.log("----> TCL: body", body);
     let message = "";
 
-    if (
-      body.to != "" &&
-      body.text != "" &&
-      body.token != ""
-    ) {
+    if (body.to != "" && body.text != "" && body.token != "") {
       let data = {
         token: body.token,
         to: body.to,
@@ -30,8 +26,8 @@ routes.post("/", urlencodedParser, async (req, res, next) => {
     res.json(message);
     next();
   } catch (error) {
-    console.log("TCL: error", error.message);
-    res.status(500).json({ err: error.message });
+    console.log("TCL: error", error.response || error);
+    res.status(error.response.status || 500).json({ error: error.response.data.error || error.message });
   }
 });
 
